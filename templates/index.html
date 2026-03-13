@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Testing Tool</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🪝 Webhook Testing Tool</h1>
+        <p>Test and debug webhooks in real-time</p>
+    </header>
+
+    <main>
+        <!-- Create Endpoint Section -->
+        <section id="create-section">
+            <button id="create-endpoint-btn" class="primary-btn">
+                + Create New Endpoint
+            </button>
+        </section>
+
+        <!-- Endpoint Info -->
+        <section id="endpoint-section" class="hidden">
+            <div class="endpoint-card">
+                <h2>Your Webhook URL</h2>
+                <div class="url-display">
+                    <input type="text" id="webhook-url" readonly>
+                    <button id="copy-url-btn" class="copy-btn">📋 Copy</button>
+                </div>
+                <div class="endpoint-stats">
+                    <span id="request-count">0 requests</span>
+                    <span id="webhook-count">0 webhooks</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Webhooks List -->
+        <section id="webhooks-section" class="hidden">
+            <div class="section-header">
+                <h2>Received Webhooks</h2>
+                <button id="clear-webhooks-btn" class="secondary-btn">Clear All</button>
+            </div>
+            
+            <div id="webhooks-list">
+                <p class="empty-state">Waiting for webhooks...</p>
+            </div>
+        </section>
+
+        <!-- Webhook Detail Modal -->
+        <div id="webhook-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Webhook Details</h3>
+                    <button id="close-modal-btn" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="detail-row">
+                        <label>Method:</label>
+                        <span id="modal-method" class="method-badge"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Received:</label>
+                        <span id="modal-time"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>IP Address:</label>
+                        <span id="modal-ip"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Headers:</label>
+                        <pre id="modal-headers"></pre>
+                    </div>
+                    <div class="detail-row">
+                        <label>Query Parameters:</label>
+                        <pre id="modal-params"></pre>
+                    </div>
+                    <div class="detail-row">
+                        <label>Body:</label>
+                        <pre id="modal-body"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time indicator -->
+        <div id="realtime-indicator" class="hidden">
+            <span class="pulse"></span>
+            <span>Listening for webhooks...</span>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built by <a href="https://github.com/CyberRaccoonTeam" target="_blank">CyberRaccoonTeam</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

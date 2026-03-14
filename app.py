@@ -64,6 +64,10 @@ def generate_webhook_id():
     return uuid.uuid4().hex[:16]
 
 # Routes
+@app.route('/landing')
+def landing():
+    return render_template('landing.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')

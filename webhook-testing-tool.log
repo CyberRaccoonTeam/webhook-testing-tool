@@ -1,0 +1,26 @@
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 632-244-588
+(289399) wsgi starting up on http://0.0.0.0:5558
+(289399) accepted ('127.0.0.1', 42546)
+127.0.0.1 - - [15/Mar/2026 12:21:06] "GET /api/health HTTP/1.1" 404 363 0.001039
+(289399) accepted ('127.0.0.1', 48592)
+127.0.0.1 - - [15/Mar/2026 12:21:18] "GET / HTTP/1.1" 200 3828 0.005346
+(289399) accepted ('127.0.0.1', 55022)
+127.0.0.1 - - [15/Mar/2026 12:24:35] "GET / HTTP/1.1" 200 3828 0.000483
+(289399) accepted ('127.0.0.1', 39006)
+127.0.0.1 - - [15/Mar/2026 12:41:07] "GET /api/health HTTP/1.1" 404 363 0.000679
+(289399) accepted ('127.0.0.1', 45790)
+127.0.0.1 - - [15/Mar/2026 12:41:52] "GET /api/health HTTP/1.1" 404 363 0.000370
+(289399) accepted ('127.0.0.1', 38668)
+127.0.0.1 - - [15/Mar/2026 12:41:59] "GET / HTTP/1.1" 200 3828 0.000584
+(289399) accepted ('127.0.0.1', 59882)
+127.0.0.1 - - [15/Mar/2026 12:42:22] "GET / HTTP/1.1" 200 3828 0.000392
+ * Detected change in '/home/cyber/.openclaw/workspace/webhook-testing-tool/app.py', reloading
+🪝 Webhook Testing Tool starting on port 5558...
+ * Restarting with stat
+Traceback (most recent call last):
+  File "/home/cyber/.openclaw/workspace/webhook-testing-tool/app.py", line 21, in <module>
+    raise RuntimeError("SECRET_KEY environment variable is required")
+RuntimeError: SECRET_KEY environment variable is required
+🪝 Webhook Testing Tool starting on port 5558...

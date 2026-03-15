@@ -16,7 +16,9 @@ from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'webhook-tool-secret-key-2026')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+if not app.config['SECRET_KEY']:
+    raise RuntimeError("SECRET_KEY environment variable is required")
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -297,5 +299,5 @@ def handle_disconnect():
     print(f'Client disconnected: {request.sid}')
 
 if __name__ == '__main__':
-    print('🪝 Webhook Testing Tool starting on port 5559...')
-    socketio.run(app, host='0.0.0.0', port=5559, debug=True, allow_unsafe_werkzeug=True)
+    print('🪝 Webhook Testing Tool starting on port 5558...')
+    socketio.run(app, host='0.0.0.0', port=5558, debug=True, allow_unsafe_werkzeug=True)
